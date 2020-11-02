@@ -31,10 +31,11 @@ async fn cocktail(
         .find_one(doc! {}, None)
         .await
         .expect("Error retrieving data");
-    return match query_result {
-        None => HttpResponse::NotFound().finish(),
-        Some(_document) => HttpResponse::Ok().finish(),
-    };
+    HttpResponse::Ok().finish()
+    // return match query_result {
+    //     None => HttpResponse::NotFound().finish(),
+    //     Some(_document) => HttpResponse::Ok().finish(),
+    // };
 }
 
 #[actix_web::main]
